@@ -47,6 +47,8 @@
             </plugin>
         </plugins>
     </build>
-
+    <scm>
+        <developerConnection>scm:git:git@github.com:stoylan/spring-pet-clinic.git</developerConnection>
+    </scm>
 
 </project>
