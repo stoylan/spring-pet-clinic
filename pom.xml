@@ -14,7 +14,7 @@
     </parent>
     <groupId>stoylan.springframework</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.3</version>
     <name>spring-pet-clinic</name>
     <description>Pet clinic web page with using spring framework</description>
     <properties>
@@ -51,7 +51,7 @@
     </build>
     <scm>
         <developerConnection>scm:git:git@github.com:stoylan/spring-pet-clinic.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>spring-pet-clinic-0.0.3</tag>
   </scm>
 
 </project>
