@@ -45,11 +45,11 @@
                     <goals>install</goals>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
     <scm>
         <developerConnection>scm:git:git@github.com:stoylan/spring-pet-clinic.git</developerConnection>
-      <tag>HEAD</tag>
   </scm>
 
 </project>
