@@ -1,1 +1,5 @@
+stoylan\springframework\springpetclinic\web\controllers\IndexController.class
+stoylan\springframework\springpetclinic\web\controllers\OwnerIndexController.class
 stoylan\springframework\springpetclinic\web\SpringPetClinicApplication.class
+stoylan\springframework\springpetclinic\web\bootstrap\DataLoader.class
+stoylan\springframework\springpetclinic\web\controllers\VetIndexController.class

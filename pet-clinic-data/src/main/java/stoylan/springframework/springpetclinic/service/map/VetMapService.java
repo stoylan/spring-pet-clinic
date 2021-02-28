@@ -1,12 +1,15 @@
 package stoylan.springframework.springpetclinic.service.map;
 
+import org.springframework.stereotype.Service;
 import stoylan.springframework.springpetclinic.domain.Owner;
 import stoylan.springframework.springpetclinic.domain.Vet;
 import stoylan.springframework.springpetclinic.service.CrudService;
+import stoylan.springframework.springpetclinic.service.VetService;
 
 import java.util.Set;
 
-public class VetMapService extends AbstractMapService<Vet,Long> implements CrudService<Vet,Long> {
+@Service
+public class VetMapService extends AbstractMapService<Vet,Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -23,8 +26,8 @@ public class VetMapService extends AbstractMapService<Vet,Long> implements CrudS
     }
 
     @Override
-    public Vet save(Long id, Vet object) {
-        return super.save(id,object);
+    public Vet save(Vet object) {
+        return super.save(object);
     }
 
     @Override

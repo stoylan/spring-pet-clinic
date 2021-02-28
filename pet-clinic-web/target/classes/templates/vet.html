@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vets List</title>
+</head>
+<body>
+<h1>Vet List</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Firstmame</th>
+        <th>Lastname</th>
+
+    </tr>
+    <tr th:each="vet : ${vets}">
+        <td th:text="${vet.getId()}"></td>
+        <td th:text="${vet.getFirstName()}"></td>
+        <td th:text="${vet.getLastName()}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
