@@ -15,7 +15,7 @@ public class OwnerIndexController {
     }
 
 
-    @RequestMapping("owners")
+    @RequestMapping("/owners")
     public String listOwner(Model model){
         model.addAttribute("owners",ownerService.findAll());
 
