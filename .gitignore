@@ -109,7 +109,7 @@ Desktop.ini
 ######################
 # Directories
 ######################
-target/
+pet-clinic-web\target
 /bin/
 /deploy/
 
