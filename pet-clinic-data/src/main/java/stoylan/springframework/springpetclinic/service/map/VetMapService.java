@@ -1,15 +1,15 @@
 package stoylan.springframework.springpetclinic.service.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import stoylan.springframework.springpetclinic.domain.Pet;
-import stoylan.springframework.springpetclinic.domain.Speciality;
-import stoylan.springframework.springpetclinic.domain.Vet;
+import stoylan.springframework.springpetclinic.domain.*;
 import stoylan.springframework.springpetclinic.service.SpecialityService;
 import stoylan.springframework.springpetclinic.service.VetService;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class VetMapService extends AbstractMapService<Vet,Long> implements VetService {
     private final SpecialityService specialityService;
 

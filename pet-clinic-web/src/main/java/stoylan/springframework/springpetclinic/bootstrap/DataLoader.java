@@ -3,11 +3,7 @@ package stoylan.springframework.springpetclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import stoylan.springframework.springpetclinic.domain.*;
-import stoylan.springframework.springpetclinic.service.OwnerService;
-import stoylan.springframework.springpetclinic.service.PetTypeService;
-import stoylan.springframework.springpetclinic.service.SpecialityService;
-import stoylan.springframework.springpetclinic.service.VetService;
-import stoylan.springframework.springpetclinic.service.map.SpecialityMapService;
+import stoylan.springframework.springpetclinic.service.*;
 
 import java.time.LocalDate;
 
@@ -18,12 +14,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -66,6 +64,7 @@ public class DataLoader implements CommandLineRunner {
         owner1.setCity("Miami");
         owner1.setTelephone("12324252623");
 
+
         Pet pet1 = new Pet();
         pet1.setPetType(savedCatPetType);
         pet1.setName("Honey");
@@ -74,6 +73,12 @@ public class DataLoader implements CommandLineRunner {
         owner1.getPet().add(pet1);
 
         ownerService.save(owner1);
+
+        Visit visit = new Visit();
+        visit.setPet(pet1);
+        visit.setDescription("Sneezy Kitty");
+        visit.setLocalDate(LocalDate.now());
+        visitService.save(visit);
 
 
         Owner owner2 = new Owner();

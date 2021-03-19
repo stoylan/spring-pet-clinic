@@ -1,34 +1,25 @@
 package stoylan.springframework.springpetclinic.domain;
 
+import lombok.*;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor@Entity
+@Table(name = "visits")
 public class Visit extends BaseEntity {
 
+    @Column(name = "local_date")
     private LocalDate localDate;
+
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
     private Pet pet;
+
+    @Column(name = "description")
     private String description;
 
-    public LocalDate getLocalDate() {
-        return localDate;
-    }
-
-    public void setLocalDate(LocalDate localDate) {
-        this.localDate = localDate;
-    }
-
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

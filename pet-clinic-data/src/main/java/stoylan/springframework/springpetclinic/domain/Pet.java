@@ -1,42 +1,34 @@
 package stoylan.springframework.springpetclinic.domain;
 
-import java.time.LocalDate;
+import lombok.*;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "pets")
 public class Pet extends BaseEntity {
+    @Column(name = "name")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name="type_id")
     private PetType petType;
+
+    @ManyToOne
+    @JoinColumn(name = "owners_id")
     private Owner owner;
+
+    @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    public String getName() {
-        return name;
-    }
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "pet")
+    private Set<Visit> visits= new HashSet<>();
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public PetType getPetType() {
-        return petType;
-    }
-
-    public void setPetType(PetType petType) {
-        this.petType = petType;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
 }
