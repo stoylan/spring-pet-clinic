@@ -16,7 +16,7 @@ public class OwnerMapService extends AbstractMapService<Owner,Long> implements O
     private final PetTypeService petTypeService;
     private final PetService petService;
 
-    public OwnerMapService(PetTypeService petTypeService, PetTypeMapService petTypeMapService, PetService petService) {
+    public OwnerMapService(PetTypeService petTypeService, PetService petService) {
         this.petTypeService = petTypeService;
         this.petService = petService;
     }
@@ -62,11 +62,18 @@ public class OwnerMapService extends AbstractMapService<Owner,Long> implements O
 
     @Override
     public void delete(Owner object) {
-        delete(object);
+        super.delete(object);
     }
 
     @Override
     public Owner findByLastName(String lastName) {
+        for (long i =1L;i<map.size();i++){
+            if (map.get(i)==null)
+                continue;
+            if (map.get(i).getLastName().equalsIgnoreCase(lastName))
+                return map.get(i);
+        }
         return null;
+       // return this.findAll().stream().filter(owner -> owner.getLastName().equalsIgnoreCase(lastName)).findFirst().orElse(null);
     }
 }

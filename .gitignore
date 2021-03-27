@@ -140,3 +140,6 @@ pet-clinic-web\target
 # ESLint
 ######################
 .eslintcache
+pet-clinic-web/target
+pet-clinic-data/target
+*.lst
